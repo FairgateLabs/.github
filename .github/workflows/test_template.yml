@@ -19,10 +19,6 @@ on:
         description: 'Path to the target directory'
         required: true
         type: string
-      token:
-        description: 'Token for authentication'
-        required: true
-        type: string
 
 jobs:
   test:
@@ -32,11 +28,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ inputs.repo }}
-          token: ${{ env.REPO_ACCESS_TOKEN }}
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
           ref: main
           path: rust-bitvmx-workspace
           submodules: true
-          submodule-token: ${{ env.REPO_ACCESS_TOKEN }}
+          submodule-token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
       - name: Cache Cargo dependencies
         uses: actions/cache@v3
