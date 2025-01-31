@@ -32,11 +32,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ inputs.repo }}
-          token: ${{ inputs.token }}
+          token: ${{ env.REPO_ACCESS_TOKEN }}
           ref: main
           path: rust-bitvmx-workspace
           submodules: true
-          submodule-token: ${{ inputs.token }}
+          submodule-token: ${{ env.REPO_ACCESS_TOKEN }}
 
       - name: Cache Cargo dependencies
         uses: actions/cache@v3
