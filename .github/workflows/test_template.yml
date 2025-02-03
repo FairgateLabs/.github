@@ -32,7 +32,6 @@ jobs:
           ref: main
           path: rust-bitvmx-workspace
           submodules: true
-          submodule-token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
       - name: Cache Cargo dependencies
         uses: actions/cache@v3
